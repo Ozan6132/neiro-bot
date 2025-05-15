@@ -6,7 +6,7 @@ import json
 import telebot
 import threading
 
-TOKEN = "7776410473:AAFkeZIHGcgYWWMqUktTZ3bERHrHFJJ7mek"
+TOKEN = "7641431148:AAHIHIJkiVep9H7iJqchVZn9estuHq94CA0"
 bot = telebot.TeleBot(TOKEN)
 CHAT_ID = None
 
