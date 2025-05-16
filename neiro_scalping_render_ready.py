@@ -153,7 +153,7 @@ def handle_message(message):
 
         bot.send_message(CHAT_ID, msg)
 
-bot.polling()
+
 
 if __name__ == "__main__":
     bot.polling()
