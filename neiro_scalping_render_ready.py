@@ -155,6 +155,10 @@ def handle_message(message):
 
 bot.polling()
 
+if __name__ == "__main__":
+    bot.polling()
+
+
 
 #
 
