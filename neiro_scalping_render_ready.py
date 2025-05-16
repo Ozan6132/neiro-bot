@@ -8,6 +8,7 @@ import threading
 
 TOKEN = "7641431148:AAEmlLxKn6lSFeZcaUvbhQw6zUkphfSDVq4"
 bot = telebot.TeleBot(TOKEN)
+
 CHAT_ID = None
 
 POSITION_FILE = "position.json"
