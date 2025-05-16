@@ -12,12 +12,13 @@ POSITION_FILE = "position.json"
 LOG_FILE = "neiro_log.json"
 
 def get_prices():
-    neiro_data = requests.get("https://api.binance.tr/api/v3/ticker/24hr?symbol=NEIROTRY").json()
+    neiro_data = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=neiro&vs_currencies=try").json()
+
     btc_data = requests.get("https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT").json()
 
     return {
-        "neiro_price": float(neiro_data["lastPrice"]),
-        "neiro_change": float(neiro_data["priceChangePercent"]),
+        "neiro_price": float(neiro_data["neiro"]["try"]),
+"neiro_change": 0.0,  # değişim artık kullanılmıyor
         "btc_price": float(btc_data["lastPrice"]),
         "btc_change": float(btc_data["priceChangePercent"])
     }
