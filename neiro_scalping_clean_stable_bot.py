@@ -12,7 +12,7 @@ POSITION_FILE = "position.json"
 LOG_FILE = "neiro_log.json"
 
 def get_prices():
-    neiro_data = requests.get("https://api.binance.com/api/v3/ticker/24hr?symbol=NEIROTRY").json()
+    neiro_data = requests.get("https://api.binance.tr/api/v3/ticker/24hr?symbol=NEIROTRY").json()
     btc_data = requests.get("https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT").json()
 
     return {
