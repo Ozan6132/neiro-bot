@@ -40,8 +40,8 @@ def calc_rsi(prices):
     return round(100 - (100 / (1 + rs)), 2)
 
 def analyze_technical():
-    klines = get_klines()
-    closes = [float(k[4]) for k in klines]
+    closes = [float(k[4]) for k in klines if isinstance(k, list) and len(k) > 5]
+    volumes = [float(k[5]) for k in klines if isinstance(k, list) and len(k) > 5]
     volumes = [float(k[5]) for k in klines]
     ema20 = sum(closes[-20:]) / 20
     ema50 = sum(closes[-50:]) / 50
