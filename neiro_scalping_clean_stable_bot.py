@@ -15,14 +15,17 @@ def get_prices():
     neiro_data = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=neiro&vs_currencies=try").json()
     btc_data = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd").json()
 
+    try:
+        neiro_price = float(neiro_data["neiro"]["try"])
+    except KeyError:
+        print("NEIRO verisi eksik:", neiro_data)
+        neiro_price = 0.0
+
     return {
-        try:
-    neiro_price = float(neiro_data["neiro"]["try"])
-except KeyError:
-   print("NEIRO verisi eksik:", neiro_data)
-    neiro_price = 0.0
-     "btc_price": float(btc_data["bitcoin"]["usd"])
+        "neiro_price": neiro_price,
+        "btc_price": float(btc_data["bitcoin"]["usd"])
     }
+
 
 def get_klines(symbol="NEIROTRY", interval="15m", limit=50):
     url = f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval={interval}&limit={limit}"
