@@ -16,7 +16,7 @@ def get_prices():
     btc_data = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd").json()
 
     return {
-        "neiro_price": float(neiro_data["neiro"]["try"]),
+        "neiro_price": float(neiro_data["neiro"]["usd"]),
         "neiro_change": 0.0,
         "btc_price": float(btc_data["bitcoin"]["usd"])
     }
