@@ -54,16 +54,18 @@ def calc_rsi(prices):
 
 def analyze_technical():
     klines = get_klines()
-   closes = [float(k[4]) for k in klines if isinstance(k, list) and len(k) > 5]
+    closes = [float(k[4]) for k in klines if isinstance(k, list) and len(k) > 5]
     volumes = [float(k[5]) for k in klines if isinstance(k, list) and len(k) > 5]
-    volumes = [float(k[5]) for k in klines]
+    
     ema20 = sum(closes[-20:]) / 20
     ema50 = sum(closes[-50:]) / 50
     rsi = calc_rsi(closes)
+
     vol_avg = sum(volumes) / len(volumes)
     vol_boost = volumes[-1] > vol_avg * 1.2
     hedef = round(closes[-1] * 1.05, 6)
     buy = ema20 > ema50 and 40 < rsi < 60 and vol_boost
+
     return {
         "rsi": rsi,
         "ema20": ema20,
@@ -72,6 +74,7 @@ def analyze_technical():
         "buy_signal": buy,
         "hedef": hedef
     }
+
 
 def load_position():
     try:
