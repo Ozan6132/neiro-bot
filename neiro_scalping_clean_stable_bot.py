@@ -21,10 +21,17 @@ def get_prices():
         print("NEIRO verisi eksik:", neiro_data)
         neiro_price = 0.0
 
+    try:
+        btc_price = float(btc_data["bitcoin"]["usd"])
+    except KeyError:
+        print("BTC verisi eksik:", btc_data)
+        btc_price = 0.0
+
     return {
         "neiro_price": neiro_price,
-        "btc_price": float(btc_data["bitcoin"]["usd"])
+        "btc_price": btc_price
     }
+
 
 
 def get_klines(symbol="NEIROTRY", interval="15m", limit=50):
